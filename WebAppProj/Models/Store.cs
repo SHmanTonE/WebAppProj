@@ -16,7 +16,7 @@ namespace MasterProj.Models
 
         [Required]
         [Display(Name = "Address")]
-        public string StoreAdress { get; set; }
+        public string StoreAddress { get; set; }
 
         [Required]
         [Display(Name = "City")]
