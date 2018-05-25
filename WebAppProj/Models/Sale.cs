@@ -21,7 +21,9 @@ namespace MasterProj.Models
 
 
         // Check if Presented in view/create/delete
-        public decimal TotalSalePrice
+
+        [DataType(DataType.Currency)]
+        public decimal? TotalSalePrice
         {
             get { return Quantity*Title.Price; }
             

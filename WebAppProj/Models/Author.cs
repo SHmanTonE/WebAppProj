@@ -44,6 +44,15 @@ namespace MasterProj.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return LastName + " " + FirstName;
+            }
+        }
+
 
 
         public ICollection<Title> Titles { get; set; }
