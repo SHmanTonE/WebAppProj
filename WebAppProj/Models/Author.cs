@@ -11,6 +11,15 @@ namespace MasterProj.Models
     {
         public int ID { get; set; }
 
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return LastName + " " + FirstName;
+            }
+        }
+
         [Required]
         [StringLength(50)]
         [Display(Name = "Last Name")]
@@ -44,15 +53,7 @@ namespace MasterProj.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Display(Name = "Full Name")]
-        public string FullName
-        {
-            get
-            {
-                return LastName + " " + FirstName;
-            }
-        }
-
+      
 
 
         public ICollection<Title> Titles { get; set; }
