@@ -18,18 +18,7 @@ namespace MasterProj.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Sale Date")]
         public DateTime SaleDate { get; set; }
-
-
-        // Check if Presented in view/create/delete
-
-        [DataType(DataType.Currency)]
-        public decimal? TotalSalePrice
-        {
-            get { return Quantity*Title.Price; }
-            
-        }
-
-       
+              
         
         public int TitleID { get; set; }
 
@@ -38,6 +27,18 @@ namespace MasterProj.Models
         public int StoreID { get; set; }
 
         public Store Store { get; set; }
+
+
+        // Check if Presented in view/create/delete
+        [DataType(DataType.Currency)]
+        public decimal? TotalSalePrice
+        {
+            get {
+                if (Title == null)
+                    return 0;
+                return Quantity * Title.Price; }
+
+        }
 
     }
 }
