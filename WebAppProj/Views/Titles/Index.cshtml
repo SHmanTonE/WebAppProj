@@ -3,12 +3,43 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    h2 {
+        text-shadow: 4px 4px #bf8040;
+    }
+    input[type=text] {
+  width: 100px;
+  -webkit-transition: width .35s ease-in-out;
+  transition: width .35s ease-in-out;
+}
+input[type=text]:focus {
+  width: 150px;
+}
+</style>
 
-<h2>Index</h2>
+<h2>Titles</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<form id="formsearch" method="post">
+    <div class="row" id="SearchBox">
+        <div class="col-md-2">Full Name</div>
+        <div class="col-md-2"><input type="text" id="Author" name="Author" /></div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row" id="SearchBox">
+        <div class="col-md-2">Genre Type</div>
+        <div class="col-md-2"><input type="text" id="Genre" name="Genre" /></div>
+        <div class="col-md-1"></div>
+    </div>
+    
+    <div class="row" id="SearchBox">
+        <div class="col-md-2">Title Name</div>
+        <div class="col-md-2"><input type="text" id="TitleName" name="TitleName" /></div>
+        <div class="col-md-1"><input type="submit" id="submitsearch" value="Search" /></div>
+    </div>
+</form>
 <table class="table">
     <tr>
         <th>

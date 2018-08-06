@@ -16,9 +16,18 @@ namespace WebAppProj.Controllers
         private DataContext db = new DataContext();
 
         // GET: Stores
-        public ActionResult Index()
+        [HttpGet]
+        public ViewResult Index()
         {
             return View(db.Stores.ToList());
+        }
+        [HttpPost]
+        public ViewResult Index(string StoreName, string StoreCity, string StoreState, Store s)
+        {
+            //the search is case sensetive
+            var store = db.Stores.ToList().Where(a => a.StoreName.StartsWith(StoreName)
+            && a.StoreCity.StartsWith(StoreCity) && a.StoreState.StartsWith(StoreState));
+            return View(store);
         }
 
         // GET: Stores/Details/5

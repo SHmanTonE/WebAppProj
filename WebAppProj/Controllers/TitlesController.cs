@@ -16,12 +16,20 @@ namespace WebAppProj.Controllers
         private DataContext db = new DataContext();
 
         // GET: Titles
-        public ActionResult Index()
+        [HttpGet]
+        public ViewResult Index()
         {
             var titles = db.Titles.Include(t => t.Author).Include(t => t.Genre);
             return View(titles.ToList());
         }
-
+        [HttpPost]
+        public ViewResult Index(string TitleName, string Genre, string Author)
+        {
+            //the search is case sensetive
+            var title = db.Titles.Include(t => t.Author).Include(t => t.Genre).ToList().Where(t => t.TitleName.StartsWith(TitleName)
+            && t.Genre.GenreType.StartsWith(Genre) &&( t.Author.FirstName.StartsWith(Author)|| t.Author.LastName.StartsWith(Author))); //&& a.Price.Equals(Price));
+            return View(title);
+        }
         // GET: Titles/Details/5
         public ActionResult Details(int? id)
         {
@@ -63,6 +71,7 @@ namespace WebAppProj.Controllers
             ViewBag.GenreID = new SelectList(db.Generes, "ID", "GenreType", title.GenreID);
             return View(title);
         }
+
 
         // GET: Titles/Edit/5
         public ActionResult Edit(int? id)

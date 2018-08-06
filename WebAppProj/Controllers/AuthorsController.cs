@@ -16,9 +16,20 @@ namespace WebAppProj.Controllers
         private DataContext db = new DataContext();
 
         // GET: Authors
-        public ActionResult Index()
-        {
+        [HttpGet]
+        public ViewResult Index()
+        { 
+         
             return View(db.Authors.ToList());
+        }
+      
+        [HttpPost]
+        public ViewResult Index(string AuthorName,string AuthorCity , string AuthorState,Author aut)
+        {
+            //the search is case sensetive
+            var author = db.Authors.ToList().Where(a => (a.FirstName.StartsWith(AuthorName)|| a.LastName.StartsWith(AuthorName))
+            && a.AuthorCity.StartsWith(AuthorCity) && a.AuthorState.StartsWith(AuthorState));
+            return View(author);
         }
 
         // GET: Authors/Details/5

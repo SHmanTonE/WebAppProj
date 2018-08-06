@@ -3,12 +3,42 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    h2 {
+        text-shadow: 4px 4px #ffff1a;
+    }
+    input[type=text] {
+  width: 100px;
+  -webkit-transition: width .35s ease-in-out;
+  transition: width .35s ease-in-out;
+}
+input[type=text]:focus {
+  width: 150px;
+}
+</style>
 
-<h2>Index</h2>
+<h2>Sales</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<form id="formsearch" method="post">
+    <div class="row" id="SearchBox">
+        <div class="col-md-2">Quantity</div>
+        <div class="col-md-2"><input type="number" id="Quantity" name="Quantity"  /></div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row" id="SearchBox">
+        <div class="col-md-2">Date Time</div>
+        <div class="col-md-2"><input type="date" id="SaleDate" name="SaleDate"  /></div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row" id="SearchBox">
+        <div class="col-md-2">Total Sale Price</div>
+        <div class="col-md-2"><input type="number" id="TotalSalePrice" name="TotalSalePrice" /></div>
+        <div class="col-md-1"><input type="submit" id="submitsearch" value="Search" /></div>
+    </div>
+</form>
 <table class="table">
     <tr>
         <th>

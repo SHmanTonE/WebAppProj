@@ -16,10 +16,76 @@ namespace WebAppProj.Controllers
         private DataContext db = new DataContext();
 
         // GET: Sales
-        public ActionResult Index()
+        [HttpGet]
+        public ViewResult Index()
         {
             var sales = db.Sales.Include(s => s.Store).Include(s => s.Title);
             return View(sales.ToList());
+        }
+        [HttpPost]
+        public ViewResult Index(int? Quantity, DateTime? SaleDate, decimal? TotalSalePrice)
+
+        // public ViewResult Index(int? Quantity, DateTime? SaleDate, decimal? TotalSalePrice)
+        {
+            object sales;
+            if(Quantity==null&&SaleDate==null&&TotalSalePrice==null)
+            {
+                sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList();
+                return View(sales);
+            }
+            else if (Quantity == null && SaleDate == null && TotalSalePrice != null)
+            {
+                sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.TotalSalePrice.Equals(TotalSalePrice));
+                return View(sales);
+            }
+            else if (Quantity == null && SaleDate != null && TotalSalePrice == null)
+            {
+                sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.SaleDate.Equals(SaleDate));
+                return View(sales);
+            }
+            else if (Quantity == null && SaleDate != null && TotalSalePrice != null)
+            {
+                sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.TotalSalePrice.Equals(TotalSalePrice)
+                && s.SaleDate.Equals(SaleDate));
+                return View(sales);
+            }
+            else if (Quantity != null && SaleDate == null && TotalSalePrice == null)
+            {
+                sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.Quantity.Equals(Quantity));
+                return View(sales);
+            }
+           else if (Quantity != null && SaleDate != null && TotalSalePrice == null)
+            {
+                sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.Quantity.Equals(Quantity)
+                && s.SaleDate.Equals(SaleDate));
+                return View(sales);
+            }
+         else  if (Quantity != null && SaleDate == null && TotalSalePrice != null)
+            {
+              sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.Quantity.Equals(Quantity)
+              && s.TotalSalePrice.Equals(TotalSalePrice));
+                return View(sales);
+            }
+            //(Quantity != null && SaleDate != null && TotalSalePrice != null)
+
+            sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.Quantity.Equals(Quantity)
+          && s.TotalSalePrice.Equals(TotalSalePrice)&&s.SaleDate.Equals(SaleDate));
+
+
+            //the search is case sensetive
+            // var sales = db.Sales.ToList().Where(s => (s.Quantity.Equals(Quantity) && s.Equals(SaleDate) && s.TotalSalePrice.Equals(TotalSalePrice)));
+
+            /* if (SaleDate == null)
+             {
+                 sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.Quantity.Equals(Quantity));
+             }
+             else
+             {
+                 sales = db.Sales.Include(s => s.Store).Include(s => s.Title).ToList().Where(s => s.Quantity.Equals(Quantity) && s.SaleDate.Equals(SaleDate));
+             }
+             */
+
+            return View(sales);
         }
 
         // GET: Sales/Details/5
