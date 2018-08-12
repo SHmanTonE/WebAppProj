@@ -7,6 +7,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
         @@font-face {
             font-family: myFirstFont;
             src: url(/Views/Home/SansationLight.woff);
@@ -40,8 +49,16 @@ body
     </style>
 <body>
 
-
-
+    <div id="fb-root"></div>
+    <script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v3.1&appId=248865929085613&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-like" data-href="https://www.facebook.com/SABookhut/" data-width="50" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <header>
         <h2 id="rcorners" style="color:white"><b> </>BookHut</b></h2>
     </header>
@@ -65,15 +82,23 @@ body
 
             Your browser does not support the video tag.
         </video>
+
         <img id="scream" width="0" height="0"
              src="~/images/canvas.jpg" alt="The Scream">
 
 
         <canvas id="myCanvas" width="270" height="180"
-                style="border:1px solid #000000;">
+                style="border:1px solid #000000">
             Your browser does not support the HTML5 canvas tag.
         </canvas>
-
+        <script>
+window.onload = function() {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("scream");
+    ctx.drawImage(img, 0, 0);
+}
+        </script>
        
     </section> 
     <p>
@@ -85,6 +110,19 @@ body
     
 
     <iframe src="https://www.google.com/maps/d/embed?mid=1yiDRtsDjHJY14q5f9CLq8-UTOlruSNFt" width="640" height="480"></iframe>
+
+
+    <IFRAME name="list_news" style=" BORDER-RIGHT: DarkGray 1px; BORDER-TOP: DarkGray 1px; BORDER-LEFT: DarkGray 1px; BORDER-BOTTOM: DarkGray 1px;" HEIGHT="184" WIDTH="342" SCROLLING="NO" SRC="http://www.mivzakon.co.il/news/ticker.aspx?RequrlRss=News&heightMq=184&widthMq=342&numMivz=4&f_m=&f_t=&delay=100"></IFRAME>
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
