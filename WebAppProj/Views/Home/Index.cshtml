@@ -2,31 +2,90 @@
 @{
     ViewBag.Title = "Index";
 }
-<style> 
-@@font-face {
-    font-family: myFirstFont;
-    src: url(/Views/Home/SansationLight.woff);
+
+    <style>
+
+
+
+        @@font-face {
+            font-family: myFirstFont;
+            src: url(/Views/Home/SansationLight.woff);
+        }
+
+body
+ {
+    background-color : lightblue;
 }
 
-h2 {
-    font-family: myFirstFont;
-}
+        h2 {
+            font-family: myFirstFont;
+        }
 
-    h2 {
+        h2 {
             text-shadow: 4px 4px #ff5c33;
-    }
-#rcorners {
-    border-radius: 25px;
-    background: url(/Views/Home/fire.gif);
-    background-position: left top;
-    background-repeat: repeat;
-    padding: 20px;
-    width: 200px;
-    height: 150px;
-}
-</style>
-<h2 id="rcorners"><b>BookHut</b></h2>
+        }
 
-<p></p>
+        #example1 {
+            border: 10px solid white;
+            padding: 50px;
+            border-radius: 100px;
+        }
 
+        .newspaper {
+            -webkit-column-count: 3; /* Chrome, Safari, Opera */
+            -moz-column-count: 3; /* Firefox */
+            column-count: 3;
+        }
+
+    </style>
+<body>
+
+
+
+    <header>
+        <h2 id="rcorners" style="color:white"><b> </>BookHut</b></h2>
+    </header>
+    <section>
+        <div id="example1">
+
+            <p class="newspaper">
+
+                Additional series include: Pioneers of Eretz-Israel – A Series of Books for
+                Juvenile Readers; Idan – a series of sources, summaries, selected episodes, and supplementary materials on specific subjects; and Jewish Communities in the East in the Nineteenth and Twentieth Centuries, published in cooperation with the Ministry of Education.
+                Of the approximately 400 title currently held in the bookstore, about 30 are in languages other than Hebrew. Each year, Yad Ben-Zvi publishes about 25 titles and 14 issues of the three periodicals.
+                Buyers include the subscribers to the periodicals, participants in courses for the general public conducted on the Yad Ben-Zvi premises as well as courses for tour guides conducted throughout the country, academic and public libraries, bookstores, and more.
+            </p>
+
+        </div>
+       
+    </section>
+    <section>
+        <video width="320" height="240" controls>
+            <source src="~/videos/The Amazon Bookstore in NYC.mp4" type="video/mp4">
+
+            Your browser does not support the video tag.
+        </video>
+        <img id="scream" width="0" height="0"
+             src="~/images/canvas.jpg" alt="The Scream">
+
+
+        <canvas id="myCanvas" width="270" height="180"
+                style="border:1px solid #000000;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+       
+    </section> 
+    <p>
+        <aside>
+            The book is located in Yavne.
+        </aside>
+    </p>
+
+    
+
+    <iframe src="https://www.google.com/maps/d/embed?mid=1yiDRtsDjHJY14q5f9CLq8-UTOlruSNFt" width="640" height="480"></iframe>
+
+
+</body>
 

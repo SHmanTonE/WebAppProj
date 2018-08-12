@@ -107,6 +107,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="images\canvas.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -117,8 +118,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Views\Home\200_d.gif" />
+    <Content Include="images\200_d.gif" />
+    <Content Include="images\book.jpg" />
+    <Content Include="videos\Book.mp4" />
+    <Content Include="videos\The Amazon Bookstore in NYC.mp4" />
+    <Content Include="Views\Home\book.png" />
     <Content Include="Views\Home\fire.gif" />
+    <Content Include="Views\Home\mov_bbb.mp4" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +182,7 @@
     <Content Include="Views\Home\KirangHaerang-Regular.ttf" />
     <Content Include="Views\Home\junction-bold.woff" />
     <Content Include="Views\Home\junction-light.woff" />
+    <Content Include="Views\Home\Book.ogg" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

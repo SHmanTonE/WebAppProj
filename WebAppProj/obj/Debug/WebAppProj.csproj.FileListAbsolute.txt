@@ -69,8 +69,6 @@ C:\gitRepo\WebAppProj\WebAppProj\bin\System.Web.Webpages.Razor.xml
 C:\gitRepo\WebAppProj\WebAppProj\bin\System.Web.Helpers.xml
 C:\gitRepo\WebAppProj\WebAppProj\bin\System.Web.Mvc.xml
 C:\gitRepo\WebAppProj\WebAppProj\obj\Debug\WebAppProj.csprojResolveAssemblyReference.cache
-C:\gitRepo\WebAppProj\WebAppProj\obj\Debug\WebAppProj.csproj.CoreCompileInputs.cache
-C:\gitRepo\WebAppProj\WebAppProj\obj\Debug\WebAppProj.csproj.CopyComplete
 C:\gitRepo\WebAppProj\WebAppProj\obj\Debug\WebAppProj.dll
 C:\gitRepo\WebAppProj\WebAppProj\obj\Debug\WebAppProj.pdb
 C:\Users\אמיר מוטי\Desktop\WebAppProj-AddingControllers\WebAppProj\bin\WebAppProj.dll.config

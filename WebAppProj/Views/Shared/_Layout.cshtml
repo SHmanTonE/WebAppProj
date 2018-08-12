@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
+
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +10,25 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Authors", "Index", "Authors", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Genres", "Index", "Genres", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Sales", "Index", "Sales", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Stores", "Index", "Stores", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Titles", "Index", "Titles", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
+                <nav>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Authors", "Index", "Authors", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Genres", "Index", "Genres", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Sales", "Index", "Sales", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Stores", "Index", "Stores", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Titles", "Index", "Titles", new { area = "" }, new { @class = "navbar-brand" })
+                </nav>
+                    </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                 </ul>
@@ -35,7 +40,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - All rights are reserved for BookHut LTD.</p>
         </footer>
     </div>
 
