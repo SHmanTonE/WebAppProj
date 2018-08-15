@@ -9,17 +9,17 @@
     }
 
     body {
-    background-color : lightblue;
-}
+        background-color : lightblue;
+    }
 
-input[type=text] {
-  width: 100px;
-  -webkit-transition: width .35s ease-in-out;
-  transition: width .35s ease-in-out;
-}
-input[type=text]:focus {
-  width: 150px;
-}
+    input[type=text] {
+        width: 100px;
+        -webkit-transition: width .35s ease-in-out;
+        transition: width .35s ease-in-out;
+    }
+        input[type=text]:focus {
+            width: 150px;
+        }
 </style>
 
 <h2>Authors</h2>
@@ -97,3 +97,8 @@ input[type=text]:focus {
     }
 
 </table>
+
+<div>@Html.ActionLink("Group By Name", "GroupByNameQuery") </div>
+<br />
+<div>@Html.ActionLink("Group By City", "GroupByCityQuery")</div>
+
