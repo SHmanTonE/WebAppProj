@@ -7,15 +7,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
         @@font-face {
             font-family: myFirstFont;
             src: url(/Views/Home/SansationLight.woff);
@@ -23,7 +14,7 @@
 
 body
  {
-    background-color : lightblue;
+    background-color : aqua;
 }
 
         h2 {
@@ -45,9 +36,138 @@ body
             -moz-column-count: 3; /* Firefox */
             column-count: 3;
         }
-
+           .3 {
+          
+     position: absolute;
+    right: 175px;
+    width: 200px;
+    height: 120px;
+  
+    
+        }
+   
+        button.b3 {
+      position: absolute;
+    right: 330px;
+    
+   
+} 
+                span.b7 {
+      position: absolute;
+      bottom: 85px;
+    right: 330px;
+    
+   
+} 
+                                span.b8 {
+      position: absolute;
+    right: 340px;
+    
+   
+} 
+    span.c1 {
+      position: absolute;
+      top:508px;
+    right: 700px;
+    
+   
+} 
+        span.c2 {
+      position: absolute;
+     top:190px;
+    right : 70px; 
+} 
+                button.d1 {
+      
+     width:250px; 
+} 
     </style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+    
+$(document).ready(function(){
+  $("button.d1").click(function(){
+      $("span.c1").hide()
+})
+})
+</script>
+<script type="text/javascript">
+   
+$(document).ready(function(){
+  $("canvas").click(function(){
+  $(this).hide()
+});
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button.b3").click(function(){
+      $("p.newspaper").css("background-color", "yellow")
+  })
+})
+</script>
+<script type="text/javascript">
+    
+$(document).ready(function(){
+  $("button.2").click(function(){
+      $("span.2").hide(1000)
+  })
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button.a4").click(function(){
+  $("video").toggle()
+  })
+})
+</script>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".test").click(function(){
+  $(this).fadeOut(400)
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button.6").click(function(){
+      $("div.fb-like").hide(2000, my_alert)
+  })
+})
+function my_alert()
+{
+alert("The pagraph is now hidden")
+}
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button.7").click(function(){
+  $("p.7").html("Dont remove me please!!!")
+  })
+})
+</script>
+<script>
+
+$(document).ready(function(){
+    $("video").click(function(){
+        $("video").animate({
+            left: '500px',
+            opacity: '1',
+            height: '500px',
+            width: '500px'
+        });
+    });
+});
+</script> 
+
 <body>
+    
 
     <div id="fb-root"></div>
     <script>
@@ -58,13 +178,19 @@ body
   js.src = 'https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v3.1&appId=248865929085613&autoLogAppEvents=1';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-    <div class="fb-like" data-href="https://www.facebook.com/SABookhut/" data-width="50" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <dl>
+        <dd>  <div class="fb-like" data-href="https://www.facebook.com/SABookhut/" data-width="50" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></dd>
+        <dd> <button class="6" type="button">If you dont like us click here and the like will dissapear</button></dd>
+    </dl>
     <header>
-        <h2 id="rcorners" style="color:white"><b> </>BookHut</b></h2>
+        <h2 id="rcorners" class="test" style="color:white"><b> </>BookHut</b></h2>
+        <p class="7">If you click on the box above, it will be removed but first click the button right.<button class="7"type="button">Click me</button>
+</p>
+
     </header>
     <section>
         <div id="example1">
-
+           
             <p class="newspaper">
 
                 Additional series include: Pioneers of Eretz-Israel – A Series of Books for
@@ -72,25 +198,61 @@ body
                 Of the approximately 400 title currently held in the bookstore, about 30 are in languages other than Hebrew. Each year, Yad Ben-Zvi publishes about 25 titles and 14 issues of the three periodicals.
                 Buyers include the subscribers to the periodicals, participants in courses for the general public conducted on the Yad Ben-Zvi premises as well as courses for tour guides conducted throughout the country, academic and public libraries, bookstores, and more.
             </p>
-
+            <button class="b3" type="button">Click me to change the background color to yellow</button>
         </div>
        
     </section>
+    
+
     <section>
-        <video width="320" height="240" controls>
-            <source src="~/videos/The Amazon Bookstore in NYC.mp4" type="video/mp4">
+     
+        <dl>
+            <dd>
+                <video width="320" height="240" controls>
+                    <source src="~/videos/The Amazon Bookstore in NYC.mp4" type="video/mp4">
 
-            Your browser does not support the video tag.
-        </video>
+                    Your browser does not support the video tag.
+                </video>
+                <span class="b7">
+                    <img id="scream" width="0" height="0"
+                         src="~/images/canvas.jpg" alt="The Scream">
 
-        <img id="scream" width="0" height="0"
-             src="~/images/canvas.jpg" alt="The Scream">
 
+                    <canvas id="myCanvas" width="270" height="180"
+                            style="border:1px solid #000000">
+                        Your browser does not support the HTML5 canvas tag.
+                    </canvas>
+                </span> 
+              
+            </dd>
+            <dd><span><button class="a4" type="button" >Toggle the video</button></span><span class="c1">
 
-        <canvas id="myCanvas" width="270" height="180"
-                style="border:1px solid #000000">
-            Your browser does not support the HTML5 canvas tag.
-        </canvas>
+    <IFRAME id="1" name="list_news" style=" BORDER-RIGHT: DarkGray 1px; BORDER-TOP: DarkGray 1px; BORDER-LEFT: DarkGray 1px; BORDER-BOTTOM: DarkGray 1px;" HEIGHT="184" WIDTH="342" SCROLLING="NO" SRC="http://www.mivzakon.co.il/news/ticker.aspx?RequrlRss=News&heightMq=184&widthMq=342&numMivz=4&f_m=&f_t=&delay=100"></IFRAME>
+</span>
+            <span class="c2"><span class="c1">
+    <button class="d1" type="button">Click me and the News will disappear.</button>
+</span>
+                </span><span class="b8">click this canvas and it will dissapear.</span></dd>
+            <dd> 
+                <p></p>
+                <p>
+                    <span class="2">
+                        
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1yiDRtsDjHJY14q5f9CLq8-UTOlruSNFt" width="1200" height="350"></iframe>
+                    </span>
+
+                   
+                </p>
+            </dd>
+            <dd>
+                <span class="2">
+                    <button class="2" type="button">Hide Google Maps Slowly</button>
+                </span>
+                <span>   </span>
+                
+        </dd>
+        </dl>
+       
         <script>
 window.onload = function() {
     var c = document.getElementById("myCanvas");
@@ -104,17 +266,14 @@ window.onload = function() {
     <p>
         <aside>
             The book is located in Yavne.
+            
+
         </aside>
     </p>
-
+    
     
 
-    <iframe src="https://www.google.com/maps/d/embed?mid=1yiDRtsDjHJY14q5f9CLq8-UTOlruSNFt" width="640" height="480"></iframe>
-
-
-    <IFRAME name="list_news" style=" BORDER-RIGHT: DarkGray 1px; BORDER-TOP: DarkGray 1px; BORDER-LEFT: DarkGray 1px; BORDER-BOTTOM: DarkGray 1px;" HEIGHT="184" WIDTH="342" SCROLLING="NO" SRC="http://www.mivzakon.co.il/news/ticker.aspx?RequrlRss=News&heightMq=184&widthMq=342&numMivz=4&f_m=&f_t=&delay=100"></IFRAME>
-
-
+    
 
 
 
