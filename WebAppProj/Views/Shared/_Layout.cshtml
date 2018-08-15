@@ -9,9 +9,32 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script>
+    var colors = ["red", "blue", "green"];
+    var colorIndex = 0;
+    function changeColor() {
+        var col = document.getElementById("body");
+        if( colorIndex >= colors.length ) {
+            colorIndex = 0;
+        }
+        col.style.backgroundColor = colors[colorIndex];
+        colorIndex++;
+    }
+    </script>
 </head>
 
-<body>
+<body id='body'>
+    <style>
+        .b4 {
+          
+     position: absolute;
+    right: 175px;
+    width: 200px;
+    height: 120px;
+  
+    
+        }
+    </style>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -40,7 +63,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - All rights are reserved for BookHut LTD.</p>
+            <span>&copy; @DateTime.Now.Year - All rights are reserved for BookHut LTD.</span>
+            <span class="b4"><button class='b' onclick="changeColor();">Change color</button></span>
         </footer>
     </div>
 
