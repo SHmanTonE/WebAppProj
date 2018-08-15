@@ -18,16 +18,16 @@ namespace WebAppProj.Controllers
         // GET: Authors
         [HttpGet]
         public ViewResult Index()
-        { 
-         
+        {
+
             return View(db.Authors.ToList());
         }
-      
+
         [HttpPost]
-        public ViewResult Index(string AuthorName,string AuthorCity , string AuthorState,Author aut)
+        public ViewResult Index(string AuthorName, string AuthorCity, string AuthorState, Author aut)
         {
             //the search is case sensetive
-            var author = db.Authors.ToList().Where(a => (a.FirstName.StartsWith(AuthorName)|| a.LastName.StartsWith(AuthorName))
+            var author = db.Authors.ToList().Where(a => (a.FirstName.StartsWith(AuthorName) || a.LastName.StartsWith(AuthorName))
             && a.AuthorCity.StartsWith(AuthorCity) && a.AuthorState.StartsWith(AuthorState));
             return View(author);
         }
@@ -134,6 +134,56 @@ namespace WebAppProj.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public JsonResult GroupByName()
+        {
+            var list = from author in db.Authors
+                       select new
+                       {
+                           name = author.FirstName
+                       };
+
+            var returnList = from a in list
+                             group a by a.name into g
+                             select new
+                             {
+                                 id = g.Key,
+                                 sum = g.Count()
+                             };
+
+            return Json(returnList , JsonRequestBehavior.AllowGet);
+            
+        }
+
+        public ActionResult GroupByQuery()
+        {//Group by Query
+            List<Author> authors = db.Authors.ToList();
+            var result =
+                from author in authors
+                group author by author.FirstName into newGroup
+                select newGroup;
+            return View("groupbyresult", result.ToList());
+        }
+
+        public ActionResult GroupByNameQuery()
+        {//Group by Query
+            List<Author> authors = db.Authors.ToList();
+            var result =
+                from author in authors
+                group author by author.FirstName into newGroup
+                select newGroup;
+            return View("groupbynameresult", result.ToList());
+        }
+
+        public ActionResult GroupByCityQuery()
+        {//Group by Query
+            List<Author> authors = db.Authors.ToList();
+            var result =
+                from author in authors
+                group author by author.AuthorCity into newGroup
+                select newGroup;
+            return View("groupbycityresult", result.ToList());
         }
     }
 }

@@ -199,5 +199,14 @@ namespace WebAppProj.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult GroupByDateQuery()
+        {//Group by Query
+            List<Sale> sales = db.Sales.ToList();
+            var result =
+                 from sale in sales
+                 group sale by sale.SaleDate into newGroup
+                 select newGroup;
+            return View("groupbydateresult", result.ToList());
+        }
     }
 }

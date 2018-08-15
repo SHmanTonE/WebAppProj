@@ -4,21 +4,24 @@
     ViewBag.Title = "Index";
 }
 <style>
-    
-        body {
-    background-color : lightblue;
-}
+
+    body {
+        background-color: lightblue;
+    }
+
     h2 {
         text-shadow: 4px 4px #ffb84d;
     }
+
     input[type=text] {
-  width: 100px;
-  -webkit-transition: width .35s ease-in-out;
-  transition: width .35s ease-in-out;
-}
-input[type=text]:focus {
-  width: 150px;
-}
+        width: 100px;
+        -webkit-transition: width .35s ease-in-out;
+        transition: width .35s ease-in-out;
+    }
+
+        input[type=text]:focus {
+            width: 150px;
+        }
 </style>
 
 <h2>Stores</h2>
@@ -60,26 +63,31 @@ input[type=text]:focus {
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoreName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoreAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoreCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoreState)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreState)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<div>@Html.ActionLink("Group By City", "GroupByCityQuery")</div>
+<br />
+<div>@Html.ActionLink("Group By State", "GroupByStateQuery")</div>

@@ -133,5 +133,26 @@ namespace WebAppProj.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult GroupByCityQuery()
+        {//Group by Query
+            List<Store> stores = db.Stores.ToList();
+            var result =
+                from store in stores
+                group store by store.StoreCity into newGroup
+                select newGroup;
+            return View("groupbycityresult", result.ToList());
+        }
+
+        public ActionResult GroupByStateQuery()
+        {//Group by Query
+            List<Store> stores = db.Stores.ToList();
+            var result =
+                 from store in stores
+                 group store by store.StoreState into newGroup
+                 select newGroup;
+            return View("groupbystateresult", result.ToList());
+        }
     }
 }
+
+
