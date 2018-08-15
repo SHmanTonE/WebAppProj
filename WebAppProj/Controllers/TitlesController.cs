@@ -142,6 +142,32 @@ namespace WebAppProj.Controllers
             }
             base.Dispose(disposing);
         }
-      
+
+        public ActionResult RecomandadTitles()
+        {//Recommand Algo
+            List<Sale> sales = db.Sales.ToList();
+            Dictionary<int, int> counter = new Dictionary<int, int>();
+            foreach (var sale in db.Sales)
+            {
+                counter.Add(sale.ID, 0);
+            }
+
+            foreach (var sale in sales)
+            {
+                counter[sale.TitleID] += 1;
+            }
+            var items = from pair in counter
+                        orderby pair.Value descending
+                        select pair;
+            List<Title> result = new List<Title>();
+
+            foreach (KeyValuePair<int, int> pair in items)
+            {
+                result.Add(db.Titles.Find(pair.Key));
+            }
+
+            return View("RecomandadTitles",result.GetRange(0, 3));
+        }
+
     }
 }
