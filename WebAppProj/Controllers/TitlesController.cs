@@ -203,7 +203,32 @@ namespace WebAppProj.Controllers
 
         public ActionResult PieChart()
         {
-            return View();
+            List<Sale> sales = db.Sales.ToList();
+            Dictionary<int, int> counter = new Dictionary<int, int>();
+            foreach (var title in db.Titles)
+            {
+                counter.Add(title.ID, 0);
+            }
+
+            foreach (var sale in sales)
+            {
+                counter[sale.TitleID] += 1;
+            }
+            var items = from pair in counter
+                        orderby pair.Value descending
+                        select pair;
+
+            List<int> resVal = new List<int>();
+            List<String> resName = new List<string>();
+            List<KeyValuePair<string, int>> res = new List<KeyValuePair<string, int>>();
+            foreach (var pair in items)
+            {
+                res.Add(new KeyValuePair<string, int>(db.Titles.Find(pair.Key).TitleName.ToString(), pair.Value));
+                // resVal.Add(pair.Value*10);
+                //  resName.Add(db.Paints.Find(pair.Key).PaintName.ToString());
+            }
+
+            return View(res);
         }
         public JsonResult MakeJsonResult()
         {

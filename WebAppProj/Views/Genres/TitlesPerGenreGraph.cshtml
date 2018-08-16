@@ -1,0 +1,108 @@
+﻿@model  List<KeyValuePair<string,int>>
+
+@{
+    ViewBag.Title = "Graph";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>How Many Titles Per Genres:</h2>
+
+
+@{
+    ViewBag.Title = "How Many Titles Per Genres";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<int> val = new List<int>();
+    List<string> names = new List<string>();
+    foreach (var pair in Model)
+    {
+        val.Add(pair.Value);
+        names.Add(pair.Key);
+    }
+}
+
+<style>
+    /*.bar-chart {
+        background-color: #C7D9D9;
+    }*/
+    .bar-chart {
+        fill: steelblue;
+        background-color: #fff;
+    }
+
+        .bar-chart:hover {
+            fill: steelblue;
+        }
+
+    .axis--x path {
+        display: none;
+    }
+    div.XLine {
+        display: table;
+        width: 100%;
+        table-layout: fixed; /* For cells of equal size */
+    }
+
+        div.XLine span {
+            display: table-cell;
+            text-align: center;
+        }
+</style>
+
+<center>
+        <svg class="bar-chart"></svg>
+</center>
+<div class="XLine">
+        @{
+            foreach (var pair in Model)
+            {
+                <span>@pair.Key - @pair.Value Times</span>
+            }
+        }
+</div>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+
+        var dataset = JSON.parse('@Html.Raw(Json.Encode(@val.ToList()))');
+        var namesSet = JSON.parse('@Html.Raw(Json.Encode(@names.ToList()))');
+        for (var i = 0; i < dataset.length; i++) {
+            dataset[i] = (dataset[i] * 20)+1;
+        }
+
+        var svgWidth = 1100;
+        var svgHeight = 600;
+        var barPadding = 5;
+        var barWidth = (svgWidth / dataset.length);
+
+
+
+        var svg = d3.select('svg')
+            .attr("width", svgWidth)
+            .attr("height", svgHeight);
+
+        var barChart = svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("y",
+                function (d) {
+                    return svgHeight - d;
+                })
+            .attr("height",
+                function (d) {
+                    return d;
+                })
+            .attr("width", barWidth - barPadding)
+            .attr("transform",
+                function (d, i) {
+                    var translate = [barWidth * i, 0];
+                    return "translate(" + translate + ")";
+                });
+
+
+
+    </script>
+
+
+
+

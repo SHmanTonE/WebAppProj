@@ -124,5 +124,35 @@ namespace WebAppProj.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult TitlesPerGenreGraph()
+        {
+
+            List<Title> titles = db.Titles.ToList();
+            Dictionary<int, int> counter = new Dictionary<int, int>();
+            foreach (var genre in db.Generes)
+            {
+                counter.Add(genre.ID, 0);
+            }
+
+            foreach (var title in titles)
+            {
+                counter[title.GenreID] += 1;
+            }
+            var items = from pair in counter
+                        orderby pair.Value descending
+                        select pair;
+
+            List<int> resVal = new List<int>();
+            List<String> resName = new List<string>();
+            List<KeyValuePair<string, int>> res = new List<KeyValuePair<string, int>>();
+            foreach (var pair in items)
+            {
+                res.Add(new KeyValuePair<string, int>(db.Generes.Find(pair.Key).GenreType.ToString(), pair.Value));
+                // resVal.Add(pair.Value*10);
+                //  resName.Add(db.Paints.Find(pair.Key).PaintName.ToString());
+            }
+
+            return View(res);
+        }
     }
 }
