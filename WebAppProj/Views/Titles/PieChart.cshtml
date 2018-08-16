@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "PieChart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div id="chart"></div>
+@*<script src="d3.v4.min.js"></script>*@
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript" src="/scripts/d3.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/scripts/d3.js"></script>
+@*<script language="JavaScript" type="text/javascript" src="/scripts/jquery-1.10.2.intellisense.js"></script>*@
+<script language="JavaScript" type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script>
+
+@*<script language="JavaScript" type="text/javascript" src="/scripts/jquery-1.10.2.min.map"></script>*@
+
+
+<script>
+    (function(d3) {
+       // 'use strict';
+
+        //var dataset = [
+        //    { label: 'Abulia', count: 10 },
+        //    { label: 'Betelgeuse', count: 20 },
+        //    { label: 'Cantaloupe', count: 30 },
+        //    { label: 'Dijkstra', count: 40 }
+        //];
+        var dataset = [];
+
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "/Titles/MakeJsonResult",
+            dataType: 'json',
+            async: false,
+            success: myCallback,
+            error: function (xhr, ajaxoptions, thrownError){
+                alert('Failed to get data no relevent.');
+            }
+        });
+
+        function myCallback(response) {
+            dataset = response;
+
+            PieDraw(dataset);
+            // Do whatever you need with result variable
+        }
+        function PieDraw(Data) {
+            
+        
+        var width = 360;
+        var height = 360;
+        var radius = Math.min(width, height) / 2;
+
+        var color = d3.scaleOrdinal(d3.schemeCategory20b);
+
+        var svg = d3.select('#chart')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .append('g')
+            .attr('transform', 'translate(' + (width / 2) +
+                ',' + (height / 2) + ')');
+
+        var arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius);
+
+        var pie = d3.pie()
+            .value(function (d) { return d.count; })
+            .sort(null);
+
+        var path = svg.selectAll('path')
+            .data(pie(Data))
+            .enter()
+            .append('path')
+            .attr('d', arc)
+            .attr('fill', function(d) {
+                return color(d.data.label);
+            });
+        }
+    })(window.d3);
+</script>
+
+}
+

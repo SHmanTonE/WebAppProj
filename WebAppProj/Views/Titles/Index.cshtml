@@ -4,7 +4,9 @@
     ViewBag.Title = "Index";
 }
 <style>
-    
+    div.links {
+        text-shadow: #808080;   
+    }
         body {
     background-color : lightblue;
 }
@@ -23,7 +25,8 @@ input[type=text]:focus {
 
 <h2>Titles</h2>
 <br />
-<div>@Html.ActionLink("Recommended Titles", "RecomandadTitles")</div>
+<div class="links">@Html.ActionLink("Recommended Titles", "RecomandadTitles")      @Html.ActionLink("Titles Orderd Graph", "HowManyTitlesWasOrderedGraph")</div>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
